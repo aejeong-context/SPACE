@@ -1,10 +1,10 @@
-package so.ego.space.domains.meeting.domain;
+package so.ego.space.domains.meeting.domain.domain;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import so.ego.space.domains.project.domain.Member;
+import so.ego.space.domains.project.domain.domain.Member;
 
 import javax.persistence.*;
 

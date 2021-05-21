@@ -1,18 +1,13 @@
-package so.ego.space.domains.meeting.domain;
+package so.ego.space.domains.meeting.domain.domain;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@Builder
 @Table(name = "meeting")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -23,8 +18,17 @@ public class Meeting {
 
     private String name;
     private String goal;
-    private boolean check;
+
+
+    @Enumerated(EnumType.STRING)
+    private MeetingCheckType check;
+
     private LocalDateTime start_time;
     private LocalDateTime end_time;
+
+    public void updateMeeting(String goal, MeetingCheckType check) {
+        this.goal = goal;
+        this.check = check;
+    }
 
 }

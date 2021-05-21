@@ -1,4 +1,4 @@
-package so.ego.space.domains.project.domain;
+package so.ego.space.domains.project.domain.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
