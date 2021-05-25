@@ -21,6 +21,7 @@ public class Meeting {
 
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "status")
     private MeetingCheckType check;
 
     private LocalDateTime start_time;
@@ -28,6 +29,10 @@ public class Meeting {
 
     public void updateMeeting(String goal, MeetingCheckType check) {
         this.goal = goal;
+        this.check = check;
+    }
+
+    public void updateMeetingStatus(MeetingCheckType check) {
         this.check = check;
     }
 

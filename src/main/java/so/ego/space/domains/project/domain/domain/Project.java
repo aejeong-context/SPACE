@@ -1,12 +1,12 @@
 package so.ego.space.domains.project.domain.domain;
 
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.*;
-import so.ego.space.domains.BaseTimeEntity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +27,7 @@ public class Project {
 
     private LocalDate start_date;
     private LocalDate end_date;
+
 
     @OneToMany(mappedBy = "project")
     @JsonBackReference

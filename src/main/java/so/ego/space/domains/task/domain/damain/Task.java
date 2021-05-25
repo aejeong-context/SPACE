@@ -1,9 +1,6 @@
 package so.ego.space.domains.task.domain.damain;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import so.ego.space.domains.project.domain.domain.Project;
 
 import javax.persistence.*;
@@ -11,6 +8,7 @@ import java.time.LocalDate;
 
 @Entity
 @Getter
+@Builder
 @Table(name = "task")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -30,4 +28,16 @@ public class Task {
     private LocalDate start_date;
     private LocalDate end_date;
 
+    public void updateTaskContent(String content) {
+        this.content = content;
+    }
+
+    public void updateTaskStatus(TaskStatus status) {
+        this.status = status;
+    }
+
+    public void updateTaskDate(LocalDate start_date, LocalDate end_date) {
+        this.start_date = start_date;
+        this.end_date = end_date;
+    }
 }

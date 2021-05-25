@@ -17,4 +17,6 @@ public class MeetingResisterRequest {
     private LocalDateTime start_time;
     private LocalDateTime end_time;
 
+    //업무
+    private Long taskId;
 }

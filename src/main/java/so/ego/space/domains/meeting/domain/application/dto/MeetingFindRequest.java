@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 
 @Getter
 public class MeetingFindRequest {
-
     private String name;
     private String goal;
     private MeetingCheckType check;
