@@ -38,4 +38,8 @@ public class Member {
         this.user = user;
         this.level = level;
     }
+
+    public void updatePosition(String position){
+        this.position = position;
+    }
 }

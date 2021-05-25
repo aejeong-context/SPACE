@@ -26,7 +26,7 @@ public class ProjectUpdateService {
     // 프로젝트 변경
     @Transactional
     public ProjectUpdateResponse updateProject(ProjectUpdateRequest projectUpdateRequest){
-        Project project = projectRepository.findById(projectUpdateRequest.getId())
+        Project project  = projectRepository.findById(projectUpdateRequest.getId())
                 .orElseThrow(() -> new IllegalArgumentException("invalid project_id."));
         if(isLeader(project, projectUpdateRequest.getUser_id())){
             project.setName(projectUpdateRequest.getName());
