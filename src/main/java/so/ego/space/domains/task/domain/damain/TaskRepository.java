@@ -11,6 +11,6 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
 
 //    @Query(value= "select * from task t where t.title like %:taskTitle%", nativeQuery = true)
 //    List<Task> findByTitleLike(@Param("taskTitle") String taskTitle);
-        List<Task> findByTitleIsContainingAndProjectId(String title,Long projectId);
+        List<Task> findByTitleIsContainingAndProjectId(String title, Long projectId);
 
 }

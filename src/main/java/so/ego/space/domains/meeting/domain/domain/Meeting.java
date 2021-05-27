@@ -1,6 +1,7 @@
 package so.ego.space.domains.meeting.domain.domain;
 
 import lombok.*;
+import so.ego.space.domains.project.domain.domain.Project;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -15,6 +16,10 @@ public class Meeting {
 
     @Id @GeneratedValue
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    private Project project;
 
     private String name;
     private String goal;

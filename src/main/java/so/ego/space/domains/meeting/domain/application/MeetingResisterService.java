@@ -36,7 +36,6 @@ public class MeetingResisterService {
                  .end_time(meetingResisterRequest.getEnd_time())
                  .build());
 
-         meetingTaskResisterService.resisterMeetingTask(Long MeetingId);
     }
 
 }

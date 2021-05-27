@@ -13,13 +13,5 @@ public class MeetingTaskResisterService {
 
     private final MeetingTaskRepository meetingTaskRepository;
 
-    public void resisterMeetingTask( meetingTaskResisterRequest){
-
-        meetingTaskRepository.save(MeetingTask.builder()
-                .meeting(meetingTaskResisterRequest.getMeetingId())
-                .task(meetingTaskResisterRequest.getTaskId())
-                .type(MeetingTaskType.AGENDA)
-                .build());
-    }
 
 }

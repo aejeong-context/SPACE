@@ -18,10 +18,9 @@ public class MeetingFindService {
     private final MeetingTaskRepository meetingTaskRepository;
 
     //회의 리스트
-    public List<MeetingFindResponse> findAllMeetings(Long taskId){
+    public List<MeetingFindResponse> findAllMeetings(Long projectId){
         List<MeetingFindResponse> meetingFindResponseList = new LinkedList<>();
-//        List<Meeting> meetingList = meetingRepository.findByTaskId(taskId).orElseThrow(() -> new IllegalArgumentException("Invalid taskId Index"));
-        List<Meeting> meetingList = meetingRepository.findAll();
+        List<Meeting> meetingList = meetingRepository.findAllByProjectId(projectId).orElseThrow(() -> new IllegalArgumentException("Invalid projectId Index"));
         for(Meeting meeting :meetingList ){
             meetingFindResponseList.add(MeetingFindResponse.builder()
                     .name(meeting.getName())
