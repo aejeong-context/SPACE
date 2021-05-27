@@ -2,7 +2,7 @@ package so.ego.space.domains.message.domain;
 
 import lombok.*;
 import so.ego.space.domains.BaseTimeEntity;
-import so.ego.space.domains.project.domain.domain.Member;
+import so.ego.space.domains.project.domain.Member;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
