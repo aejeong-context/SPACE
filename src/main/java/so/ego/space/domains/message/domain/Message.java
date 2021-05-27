@@ -1,9 +1,6 @@
 package so.ego.space.domains.message.domain;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import so.ego.space.domains.BaseTimeEntity;
 import so.ego.space.domains.project.domain.Member;
 
@@ -18,7 +15,7 @@ import java.time.LocalDateTime;
 public class Message extends BaseTimeEntity {
 
     @Id
-    @GeneratedValue()
+    @GeneratedValue
     private Long id;
 
     private String content;
@@ -34,4 +31,16 @@ public class Message extends BaseTimeEntity {
     private LocalDateTime send_date;
     private LocalDateTime read_date;
 
+    @Builder
+    public Message(String content, Member send_member, Member read_member, LocalDateTime send_date, LocalDateTime read_date) {
+        this.content = content;
+        this.send_member = send_member;
+        this.read_member = read_member;
+        this.send_date = send_date;
+        this.read_date = read_date;
+    }
+
+    public void updateReadDate(LocalDateTime read_date){
+        this.read_date = read_date;
+    }
 }
