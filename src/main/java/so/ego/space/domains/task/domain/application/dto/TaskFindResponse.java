@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 
 public class TaskFindResponse {
+    private String title;
     private String content;
     private TaskStatus status;
     private LocalDate start_date;

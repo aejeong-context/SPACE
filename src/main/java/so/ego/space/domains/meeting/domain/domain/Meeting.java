@@ -27,9 +27,8 @@ public class Meeting {
     private LocalDateTime start_time;
     private LocalDateTime end_time;
 
-    public void updateMeeting(String goal, MeetingCheckType check) {
+    public void updateMeetingGoal(String goal) {
         this.goal = goal;
-        this.check = check;
     }
 
     public void updateMeetingStatus(MeetingCheckType check) {

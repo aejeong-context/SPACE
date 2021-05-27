@@ -7,6 +7,7 @@ import so.ego.space.domains.task.domain.application.dto.TaskFindResponse;
 import so.ego.space.domains.task.domain.damain.Task;
 import so.ego.space.domains.task.domain.damain.TaskRepository;
 
+import java.util.LinkedList;
 import java.util.List;
 
 @Service
@@ -28,8 +29,54 @@ public class TaskFindService {
                 .build();
     }
 
-    public List<TaskFindResponse> findAllTasks(Long projectId){
-        TaskFindResponse taskFindResponse = new Link
+    @Transactional
+    public List<TaskFindResponse> findAllTasks(Long projectId) {
+        List<TaskFindResponse> taskFindResponseList = new LinkedList<>();
+
+        List<Task> taskList = taskRepository.findByProjectId(projectId).orElseThrow(() -> new IllegalArgumentException("Invalid ProjectId Index"));
+        for (Task task : taskList) {
+            taskFindResponseList.add(TaskFindResponse.builder()
+                    .title(task.getTitle())
+                    .content(task.getContent())
+                    .status(task.getStatus())
+                    .start_date(task.getStart_date())
+                    .end_date(task.getEnd_date())
+                    .build());
+        }
+        return taskFindResponseList;
     }
 
+//    @Transactional
+//    public List<TaskFindResponse> searchTask(String taskTitle) {
+//        List<TaskFindResponse> taskFindResponseList = new LinkedList<>();
+//        List<Task> taskList = taskRepository.findByTitleLike(taskTitle);
+//
+//        for (Task task : taskList) {
+//            taskFindResponseList.add(TaskFindResponse.builder()
+//                    .title(task.getTitle())
+//                    .content(task.getContent())
+//                    .status(task.getStatus())
+//                    .start_date(task.getStart_date())
+//                    .end_date(task.getEnd_date())
+//                    .build());
+//        }
+//        return taskFindResponseList;
+//    }
+
+    @Transactional
+    public List<TaskFindResponse> searchTask(String taskTitle, Long projectId) {
+        List<TaskFindResponse> taskFindResponseList = new LinkedList<>();
+        List<Task> taskList = taskRepository.findByTitleIsContainingAndProjectId(taskTitle, projectId);
+
+        for (Task task : taskList) {
+            taskFindResponseList.add(TaskFindResponse.builder()
+                    .title(task.getTitle())
+                    .content(task.getContent())
+                    .status(task.getStatus())
+                    .start_date(task.getStart_date())
+                    .end_date(task.getEnd_date())
+                    .build());
+        }
+        return taskFindResponseList;
+    }
 }

@@ -3,7 +3,6 @@ package so.ego.space.domains.task.domain.application.dto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import so.ego.space.domains.project.domain.domain.Project;
 import so.ego.space.domains.task.domain.damain.TaskStatus;
 
 import java.time.LocalDate;
@@ -14,6 +13,7 @@ import java.time.LocalDate;
 public class TaskResisterRequest {
 
     private Long project_id;
+    private String title;
     private String content;
     private TaskStatus status;
     private LocalDate start_date;

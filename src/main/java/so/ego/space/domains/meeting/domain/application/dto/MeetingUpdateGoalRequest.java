@@ -6,10 +6,9 @@ import so.ego.space.domains.meeting.domain.domain.MeetingCheckType;
 import java.time.LocalDateTime;
 
 @Getter
-public class MeetingFindRequest {
-    private String name;
+public class MeetingUpdateGoalRequest {
+
+    private Long meetingId;
     private String goal;
-    private MeetingCheckType check;
-    private LocalDateTime start_time;
-    private LocalDateTime end_time;
+
 }

@@ -15,11 +15,11 @@ public class TaskUpdateService {
 
     private final TaskRepository taskRepository;
 
-    //내용 변경
+    //제목, 내용 변경
     @Transactional
     public void updateContent(TaskUpdateContentRequest taskUpdateContentRequest){
         Task task =  taskRepository.findById(taskUpdateContentRequest.getTaskId()).orElseThrow(() -> new IllegalArgumentException("Invalid Task Index"));
-        task.updateTaskContent(taskUpdateContentRequest.getContent());
+        task.updateTaskTitleContent(taskUpdateContentRequest.getTitle(),taskUpdateContentRequest.getContent());
     }
 
     //상태 변경

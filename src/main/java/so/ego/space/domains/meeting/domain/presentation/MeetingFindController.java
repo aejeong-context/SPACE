@@ -16,9 +16,9 @@ public class MeetingFindController {
 
     private final MeetingFindService meetingFindService;
 
-    @GetMapping("/meetings")
-    public List<MeetingFindResponse> findAllMeetings(){
-        return meetingFindService.findAllMeetings();
+    @GetMapping("/meetings/{taskId}")
+    public List<MeetingFindResponse> findAllMeetings(@PathVariable Long taskId){
+        return meetingFindService.findAllMeetings(taskId);
     }
 
     @GetMapping("/meeting/{meetingId}")

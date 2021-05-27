@@ -20,6 +20,7 @@ public class Task {
     @JoinColumn(name = "project_id")
     private Project project;
 
+    private String title;
     private String content;
 
     @Enumerated(value = EnumType.STRING)
@@ -28,7 +29,8 @@ public class Task {
     private LocalDate start_date;
     private LocalDate end_date;
 
-    public void updateTaskContent(String content) {
+    public void updateTaskTitleContent(String title, String content) {
+        this.title = title;
         this.content = content;
     }
 

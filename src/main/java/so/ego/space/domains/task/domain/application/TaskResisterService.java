@@ -10,8 +10,6 @@ import so.ego.space.domains.task.domain.damain.Task;
 import so.ego.space.domains.task.domain.damain.TaskRepository;
 import so.ego.space.domains.task.domain.damain.TaskStatus;
 
-import java.time.LocalDate;
-
 @Service
 @RequiredArgsConstructor
 public class TaskResisterService {
@@ -26,6 +24,7 @@ public class TaskResisterService {
 
         taskRepository.save(Task.builder()
                 .project(project)
+                .title(taskResisterRequest.getTitle())
                 .content(taskResisterRequest.getContent())
                 .status(TaskStatus.TODO)
                 .start_date(taskResisterRequest.getStart_date())

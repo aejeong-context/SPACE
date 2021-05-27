@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import so.ego.space.domains.meeting.domain.application.MeetingResisterService;
 import so.ego.space.domains.meeting.domain.application.dto.MeetingResisterRequest;
-import so.ego.space.domains.meeting.domain.application.dto.MeetingUpdateRequest;
 
 @RequiredArgsConstructor
 @RestController
