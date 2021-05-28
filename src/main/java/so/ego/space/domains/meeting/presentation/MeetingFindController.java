@@ -15,13 +15,15 @@ public class MeetingFindController {
 
     private final MeetingFindService meetingFindService;
 
-    @GetMapping("/meetings/{taskId}")
-    public List<MeetingFindResponse> findAllMeetings(@PathVariable Long taskId){
-        return meetingFindService.findAllMeetings(taskId);
+    //회의 전체조회
+    @GetMapping("/meetings/{projectId}")
+    public List<MeetingFindResponse> findAllMeetings(@PathVariable Long projectId){
+        return meetingFindService.findAllMeetings(projectId);
     }
 
+    //회의 상세조회
     @GetMapping("/meeting/{meetingId}")
-    public MeetingFindResponse findOneMeeting(Long meetingId){
+    public MeetingFindResponse findOneMeeting(@PathVariable Long meetingId){
         return meetingFindService.findOneMeeting(meetingId);
     }
 }

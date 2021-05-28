@@ -22,6 +22,7 @@ public class TaskFindService {
         Task task = taskRepository.findById(taskId).orElseThrow(() -> new IllegalArgumentException("Invalid Task Index"));
 
         return TaskFindResponse.builder()
+                .title(task.getTitle())
                 .content(task.getContent())
                 .status(task.getStatus())
                 .start_date(task.getStart_date())
@@ -29,6 +30,7 @@ public class TaskFindService {
                 .build();
     }
 
+    //업무 리스트
     @Transactional
     public List<TaskFindResponse> findAllTasks(Long projectId) {
         List<TaskFindResponse> taskFindResponseList = new LinkedList<>();
@@ -46,27 +48,11 @@ public class TaskFindService {
         return taskFindResponseList;
     }
 
-//    @Transactional
-//    public List<TaskFindResponse> searchTask(String taskTitle) {
-//        List<TaskFindResponse> taskFindResponseList = new LinkedList<>();
-//        List<Task> taskList = taskRepository.findByTitleLike(taskTitle);
-//
-//        for (Task task : taskList) {
-//            taskFindResponseList.add(TaskFindResponse.builder()
-//                    .title(task.getTitle())
-//                    .content(task.getContent())
-//                    .status(task.getStatus())
-//                    .start_date(task.getStart_date())
-//                    .end_date(task.getEnd_date())
-//                    .build());
-//        }
-//        return taskFindResponseList;
-//    }
-
+    //업무 검색
     @Transactional
-    public List<TaskFindResponse> searchTask(String taskTitle, Long projectId) {
+    public List<TaskFindResponse> searchTask(String searchTaskTitle, Long projectId) {
         List<TaskFindResponse> taskFindResponseList = new LinkedList<>();
-        List<Task> taskList = taskRepository.findByTitleIsContainingAndProjectId(taskTitle, projectId);
+        List<Task> taskList = taskRepository.findByTitleIsContainingAndProjectId(searchTaskTitle, projectId);
 
         for (Task task : taskList) {
             taskFindResponseList.add(TaskFindResponse.builder()

@@ -12,7 +12,7 @@ public class MeetingResisterController {
     public final MeetingResisterService meetingResisterService;
 
     //회의 생성
-    @PostMapping("/resister")
+    @PostMapping("/meeting")
     public void resisterMeeting(@RequestBody MeetingResisterRequest meetingResisterRequest){
         meetingResisterService.resisterMeeting(meetingResisterRequest);
     }

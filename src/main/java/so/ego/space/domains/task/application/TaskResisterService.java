@@ -17,11 +17,10 @@ public class TaskResisterService {
     private final TaskRepository taskRepository;
     private final ProjectRepository projectRepository;
 
+    //업무 생성
     @Transactional
     public void resisterTask(TaskResisterRequest taskResisterRequest){
-        Project project = Project.builder().name("TEST").build();
-        projectRepository.save(project);
-
+        Project project = projectRepository.findById(taskResisterRequest.getProjectId()).orElseThrow(() -> new IllegalArgumentException("Invalid projectId Index"));
         taskRepository.save(Task.builder()
                 .project(project)
                 .title(taskResisterRequest.getTitle())

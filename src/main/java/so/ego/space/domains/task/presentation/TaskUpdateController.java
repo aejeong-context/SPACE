@@ -15,16 +15,19 @@ public class TaskUpdateController {
 
     private final TaskUpdateService taskUpdateService;
 
+    //업무 상태변경
     @PutMapping("/task/state")
     public void updateTaskStatus(@RequestBody TaskUpdateStatusRequest taskUpdateStatusRequest){
         taskUpdateService.updateStatus(taskUpdateStatusRequest);
     }
 
+    //업무 날짜변경
     @PutMapping("/task/date")
     public void updateTaskDate(@RequestBody TaskUpdateDateRequest taskUpdateDateRequest){
         taskUpdateService.updateDate(taskUpdateDateRequest);
     }
 
+    //업무 내용변경
     @PutMapping("/task/content")
     public void updateTaskContent(@RequestBody TaskUpdateContentRequest taskUpdateContentRequest){
         taskUpdateService.updateContent(taskUpdateContentRequest);

@@ -12,6 +12,7 @@ public class TaskDeleteController {
 
     private final TaskDeleteService taskDeleteService;
 
+    //업무 삭제
     @DeleteMapping("/task/{taskId}")
     public void deleteTask(@PathVariable Long taskId){
         taskDeleteService.deleteTask(taskId);

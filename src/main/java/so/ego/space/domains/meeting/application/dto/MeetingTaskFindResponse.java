@@ -8,10 +8,6 @@ import so.ego.space.domains.meeting.domain.MeetingTaskType;
 @Getter
 @Builder
 @AllArgsConstructor
-public class MeetingTaskResisterRequest {
-
-    private Long meetingId;
-    private Long taskId;
+public class MeetingTaskFindResponse {
     private MeetingTaskType type;
-
 }

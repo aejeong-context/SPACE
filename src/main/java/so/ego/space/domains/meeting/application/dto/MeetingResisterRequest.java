@@ -11,12 +11,11 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 public class MeetingResisterRequest {
+    private Long projectId;
     private String name;
     private String goal;
     private MeetingCheckType check;
     private LocalDateTime start_time;
     private LocalDateTime end_time;
 
-    //업무
-    private Long taskId;
 }

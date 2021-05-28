@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class TaskResisterRequest {
 
-    private Long project_id;
+    private Long projectId;
     private String title;
     private String content;
     private TaskStatus status;

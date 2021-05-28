@@ -13,7 +13,8 @@ public class TaskResisterController {
 
     private final TaskResisterService taskResisterService;
 
-    @PostMapping("/resistertask")
+    //업무 생성
+    @PostMapping("/task")
     public void resisterTask(@RequestBody TaskResisterRequest taskResisterRequest){
         taskResisterService.resisterTask(taskResisterRequest);
     }

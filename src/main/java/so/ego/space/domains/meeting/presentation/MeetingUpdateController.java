@@ -15,7 +15,7 @@ public class MeetingUpdateController {
     private final MeetingUpdateService meetingUpdateService;
 
     //회의 내용 변경
-    @PutMapping("/meeting")
+    @PutMapping("/meeting/goal")
     public void updateMeetingGoal(@RequestBody MeetingUpdateGoalRequest meetingUpdateGoalRequest){
         meetingUpdateService.updateMeetingGoal(meetingUpdateGoalRequest);
     }

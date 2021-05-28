@@ -2,9 +2,9 @@ package so.ego.space.domains.meeting.application;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import so.ego.space.domains.meeting.application.dto.MeetingFindResponse;
 import so.ego.space.domains.meeting.domain.MeetingRepository;
-import so.ego.space.domains.meeting.domain.MeetingTaskRepository;
 import so.ego.space.domains.meeting.domain.Meeting;
 
 import java.util.LinkedList;
@@ -15,9 +15,9 @@ import java.util.List;
 public class MeetingFindService {
 
     private final MeetingRepository meetingRepository;
-    private final MeetingTaskRepository meetingTaskRepository;
 
     //회의 리스트
+    @Transactional
     public List<MeetingFindResponse> findAllMeetings(Long projectId){
         List<MeetingFindResponse> meetingFindResponseList = new LinkedList<>();
         List<Meeting> meetingList = meetingRepository.findAllByProjectId(projectId).orElseThrow(() -> new IllegalArgumentException("Invalid projectId Index"));
@@ -34,6 +34,7 @@ public class MeetingFindService {
     }
 
     //회의 상세보기
+    @Transactional
     public MeetingFindResponse findOneMeeting(Long meetingId){
         Meeting meeting = meetingRepository.findById(meetingId).orElseThrow(() -> new IllegalArgumentException("Invalid Meeting Index"));
         return MeetingFindResponse.builder()
