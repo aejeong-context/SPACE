@@ -24,7 +24,6 @@ public class Meeting {
     private String name;
     private String goal;
 
-
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private MeetingCheckType check;

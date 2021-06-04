@@ -21,13 +21,12 @@ public class MemberFindService {
 
     // 프로젝트 팀원 조회
     public MemberFindResponse findProjectMember(Long project_id) {
-        List<Member> memberList = memberRepository.findByProjectId(project_id)
-                .orElseThrow(() -> new IllegalArgumentException("invalid project_id."));
+        List<Member> memberList = memberRepository.findByProjectId(project_id);
         List<MemberDto> memberDtoList = new ArrayList<>();
         for (Member m : memberList) {
             memberDtoList.add(
                     MemberDto.builder()
-                            .id(m.getId())
+                            .memberId(m.getId())
                     .profile(m.getUser().getProfile())
                     .nickname(m.getUser().getNickname())
                     .level(m.getLevel())

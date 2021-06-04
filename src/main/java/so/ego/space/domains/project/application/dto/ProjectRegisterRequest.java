@@ -11,6 +11,6 @@ public class ProjectRegisterRequest {
     private String name;
     private String content;
 
-    private LocalDate start_date;
-    private LocalDate end_date;
+    private String start_date;
+    private String end_date;
 }
