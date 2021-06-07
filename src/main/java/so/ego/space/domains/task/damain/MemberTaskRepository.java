@@ -9,6 +9,5 @@ import java.util.List;
 import java.util.Optional;
 
 public interface MemberTaskRepository extends JpaRepository<MemberTask, Long> {
-    List<MemberTask> findByTaskId(Long TaskId);
-
+    List<MemberTask> findByTaskId(Long taskId);
 }
