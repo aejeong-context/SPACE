@@ -27,7 +27,7 @@ public class MemberFindService {
             memberDtoList.add(
                     MemberDto.builder()
                             .memberId(m.getId())
-                    .profile(m.getUser().getProfile())
+                    .profilePath(m.getUser().getProfile().getPath())
                     .nickname(m.getUser().getNickname())
                     .level(m.getLevel())
                     .position(m.getPosition())

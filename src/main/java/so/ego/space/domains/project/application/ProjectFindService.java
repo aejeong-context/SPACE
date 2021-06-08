@@ -31,7 +31,7 @@ public class ProjectFindService {
 
             for(Member member : project.getMemberList()) {
                 memberDtoList.add(MemberDto.builder().memberId(member.getId())
-                        .profile(member.getUser().getProfile()).position(member.getPosition()).nickname(member.getUser().getNickname()).level(member.getLevel()).build());
+                        .profilePath(member.getUser().getProfile().getPath()).position(member.getPosition()).nickname(member.getUser().getNickname()).level(member.getLevel()).build());
             }
             projectDetailDtoList
                     .add(ProjectDetailDto.builder().member(memberDtoList).start_date(project.getStart_date()).end_date(project.getEnd_date()).name(project.getName()).content(project.getContent()).id(project.getId()).build());
@@ -53,7 +53,7 @@ public class ProjectFindService {
                     .level(member.getLevel())
                     .nickname(member.getUser().getNickname())
                     .position(member.getPosition())
-                    .profile(member.getUser().getProfile())
+                    .profilePath(member.getUser().getProfile().getPath())
                     .build());
         }
         return ProjectFindResponse.builder()

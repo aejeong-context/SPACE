@@ -15,7 +15,7 @@ public class MemberTaskFindController {
     private final MemberTaskFindService memberTaskFindService;
 
     @GetMapping("/memberTask/{taskId}")
-    public List<MemberTaskFindResponse> findAllMemberTask(@PathVariable Long taskId){
+    public List<MemberTaskFindResponse> findAllMemberTasks(@PathVariable Long taskId){
         return memberTaskFindService.findAllMemberTask(taskId);
     }
 }

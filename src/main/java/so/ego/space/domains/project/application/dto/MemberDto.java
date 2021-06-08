@@ -17,7 +17,7 @@ import javax.persistence.*;
 public class MemberDto {
     private Long memberId;
 
-    private Profile profile;
+    private String profilePath;
 
     private String nickname;
 
