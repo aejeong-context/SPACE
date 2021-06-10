@@ -20,9 +20,10 @@ public class MeetingFindService {
     @Transactional
     public List<MeetingFindResponse> findAllMeetings(Long projectId){
         List<MeetingFindResponse> meetingFindResponseList = new LinkedList<>();
-        List<Meeting> meetingList = meetingRepository.findAllByProjectId(projectId).orElseThrow(() -> new IllegalArgumentException("Invalid projectId Index"));
+        List<Meeting> meetingList = meetingRepository.findByProjectId(projectId);
         for(Meeting meeting :meetingList ){
             meetingFindResponseList.add(MeetingFindResponse.builder()
+                    .meetingId(meeting.getId())
                     .name(meeting.getName())
                     .check(meeting.getCheck())
                     .goal(meeting.getGoal())
@@ -38,6 +39,7 @@ public class MeetingFindService {
     public MeetingFindResponse findOneMeeting(Long meetingId){
         Meeting meeting = meetingRepository.findById(meetingId).orElseThrow(() -> new IllegalArgumentException("Invalid Meeting Index"));
         return MeetingFindResponse.builder()
+                .meetingId(meeting.getId())
                 .name(meeting.getName())
                 .goal(meeting.getGoal())
                 .check(meeting.getCheck())

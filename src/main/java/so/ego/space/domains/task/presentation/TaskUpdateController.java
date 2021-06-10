@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import so.ego.space.domains.task.application.TaskUpdateService;
 import so.ego.space.domains.task.application.dto.TaskUpdateContentRequest;
 import so.ego.space.domains.task.application.dto.TaskUpdateDateRequest;
+import so.ego.space.domains.task.application.dto.TaskUpdateRequest;
 import so.ego.space.domains.task.application.dto.TaskUpdateStatusRequest;
 
 @RequiredArgsConstructor
@@ -31,6 +32,12 @@ public class TaskUpdateController {
     @PutMapping("/task/content")
     public void updateTaskContent(@RequestBody TaskUpdateContentRequest taskUpdateContentRequest){
         taskUpdateService.updateContent(taskUpdateContentRequest);
+    }
+
+    //전체 변경
+    @PutMapping("/task")
+    public void updateTask(@RequestBody TaskUpdateRequest taskUpdateRequest){
+        taskUpdateService.updateTask(taskUpdateRequest);
     }
 
 }

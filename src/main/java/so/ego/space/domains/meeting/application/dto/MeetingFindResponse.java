@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 public class MeetingFindResponse {
+    private Long meetingId;
     private String name;
     private String goal;
     private MeetingCheckType check;

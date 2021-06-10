@@ -2,8 +2,6 @@ package so.ego.space.domains.task.application;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import so.ego.space.domains.meeting.application.dto.MeetingTaskFindResponse;
-import so.ego.space.domains.project.domain.Member;
 import so.ego.space.domains.project.domain.MemberRepository;
 import so.ego.space.domains.task.application.dto.MemberTaskFindResponse;
 import so.ego.space.domains.task.damain.MemberTask;
