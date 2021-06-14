@@ -31,12 +31,14 @@ public class Meeting {
     private LocalDateTime start_time;
     private LocalDateTime end_time;
 
-    public void updateMeetingGoal(String goal) {
-        this.goal = goal;
-    }
-
     public void updateMeetingStatus(MeetingCheckType check) {
         this.check = check;
     }
 
+    public void updateMeeting(String name, String goal, LocalDateTime start_time, LocalDateTime end_time) {
+        this.name = name;
+        this.goal = goal;
+        this.start_time = start_time;
+        this.end_time = end_time;
+    }
 }

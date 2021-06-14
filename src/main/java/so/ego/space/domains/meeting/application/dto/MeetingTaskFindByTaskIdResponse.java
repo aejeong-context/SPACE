@@ -14,6 +14,8 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 public class MeetingTaskFindByTaskIdResponse {
+
+    private Long meetingTaskId;
     private Long taskId;
     private MeetingTaskType type;
     private Long meetingId;

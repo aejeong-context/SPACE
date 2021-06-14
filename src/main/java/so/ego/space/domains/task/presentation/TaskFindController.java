@@ -28,7 +28,7 @@ public class TaskFindController {
     }
 
     //업무 검색
-    @GetMapping("/taskSearch")
+    @PostMapping("/taskSearch")
     public List<TaskFIndDetailResponse> searchTask(@RequestParam String searchTaskTitle, @RequestParam Long projectId){
         return taskFindService.searchTask(searchTaskTitle, projectId);
     }

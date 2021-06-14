@@ -36,6 +36,7 @@ public class MeetingTaskFindService {
                     .taskType(meetingTask.getTask().getStatus())
                     .taskStart_date(meetingTask.getTask().getStart_date())
                     .taskEnd_date(meetingTask.getTask().getEnd_date())
+                    .meetingTaskId(meetingTask.getId())
                     .build());
         }
         return meetingTaskFindByMeetingIdResponseList;
@@ -56,10 +57,13 @@ public class MeetingTaskFindService {
                     .meetingCheckType(meetingTask.getMeeting().getCheck())
                     .meetingStart_date(meetingTask.getMeeting().getStart_time())
                     .meetingEnd_date(meetingTask.getMeeting().getEnd_time())
+                    .meetingTaskId(meetingTask.getId())
                     .build());
         }
         return meetingTaskFindByTaskIdResponseList;
     }
+
+
 
 
 }

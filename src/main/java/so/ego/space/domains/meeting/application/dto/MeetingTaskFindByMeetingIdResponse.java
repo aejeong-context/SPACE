@@ -17,6 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 public class MeetingTaskFindByMeetingIdResponse {
 
+    private Long meetingTaskId;
     private Long meetingId;
     private MeetingTaskType type;
     private Long taskId;

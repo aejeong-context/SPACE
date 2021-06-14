@@ -10,4 +10,5 @@ public class UserLoginResponse {
     private Long id;
     private String email;
     private String nickname;
+    private String image_path;
 }

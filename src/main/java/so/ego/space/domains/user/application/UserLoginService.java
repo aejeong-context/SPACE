@@ -25,6 +25,7 @@ public class UserLoginService {
                 .id(user.getId())
                 .email(user.getEmail())
                 .nickname(user.getNickname())
+                .image_path(user.getProfile().getPath())
                 .build();
 
     }
