@@ -21,4 +21,6 @@ public class Profile {
     public Profile(String path) {
         this.path = path;
     }
+
+    public void updateProfilePath(String path){this.path = path;}
 }

@@ -40,11 +40,11 @@ public class UserRegisterService {
     }
 
     // 이메일 중복검사
-    public UserCheckEmailResponse emailCheck(UserCheckEmailRequest userCheckEmailRequest){
+    public UserCheckEmailResponse emailCheck(String email){
         boolean isExist = userRepository
-                .existsByEmail(userCheckEmailRequest.getEmail());
+                .existsByEmail(email);
        return UserCheckEmailResponse.builder()
-               .email(userCheckEmailRequest.getEmail())
+               .email(email)
                .accept(isExist? false : true)
                .build();
     }

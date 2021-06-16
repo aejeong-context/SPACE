@@ -34,7 +34,7 @@ public class ProjectFindService {
                         .profilePath(member.getUser().getProfile().getPath()).position(member.getPosition()).nickname(member.getUser().getNickname()).level(member.getLevel()).build());
             }
             projectDetailDtoList
-                    .add(ProjectDetailDto.builder().member(memberDtoList).start_date(project.getStart_date()).end_date(project.getEnd_date()).name(project.getName()).content(project.getContent()).id(project.getId()).build());
+                    .add(ProjectDetailDto.builder().member(memberDtoList).start_date(project.getStart_date()).end_date(project.getEnd_date()).name(project.getName()).content(project.getContent()).id(project.getId()).all_count(projectRepository.countByTaskAll(project.getId())).done_count(projectRepository.countByTaskDone(project.getId())).build());
 
         }
 

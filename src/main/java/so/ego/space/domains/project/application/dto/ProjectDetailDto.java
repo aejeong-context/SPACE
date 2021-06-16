@@ -19,6 +19,9 @@ public class ProjectDetailDto {
     private LocalDate start_date;
     private LocalDate end_date;
 
+    private Long all_count;
+    private Long done_count;
+
     private List<MemberDto> member;
 
 }
