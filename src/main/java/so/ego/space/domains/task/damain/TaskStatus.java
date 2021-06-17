@@ -1,4 +1,4 @@
-package so.ego.space.domains.task.domain;
+package so.ego.space.domains.task.damain;
 
 public enum TaskStatus {
     TODO, DOING, DONE

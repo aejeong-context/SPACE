@@ -1,6 +1,7 @@
 package so.ego.space.domains.project.domain;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.*;
 import so.ego.space.domains.user.domain.User;
 
@@ -8,6 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Getter
+@Builder
 @Table(name = "member")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor

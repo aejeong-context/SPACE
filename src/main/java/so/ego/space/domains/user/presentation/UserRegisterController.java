@@ -18,8 +18,8 @@ public class UserRegisterController {
     }
 
     @GetMapping("/user/email")
-    public UserCheckEmailResponse checkEmail(@RequestBody UserCheckEmailRequest userCheckEmailRequest) {
-        return userRegisterService.emailCheck(userCheckEmailRequest);
+    public UserCheckEmailResponse checkEmail(@RequestParam String email) {
+        return userRegisterService.emailCheck(email);
     }
 
     @DeleteMapping("/user")

@@ -15,9 +15,9 @@ import javax.persistence.*;
 @Builder
 @AllArgsConstructor
 public class MemberDto {
-    private Long id;
+    private Long memberId;
 
-    private Profile profile;
+    private String profilePath;
 
     private String nickname;
 

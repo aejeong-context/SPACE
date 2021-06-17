@@ -1,7 +1,10 @@
 package so.ego.space.domains.project.application.dto;
 
 import lombok.*;
+import so.ego.space.domains.project.domain.Member;
 import so.ego.space.domains.project.domain.Project;
+
+import java.util.List;
 
 @Getter
 @Builder
@@ -9,4 +12,5 @@ import so.ego.space.domains.project.domain.Project;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ProjectFindResponse {
     Project project;
+    List<MemberDto> members;
 }

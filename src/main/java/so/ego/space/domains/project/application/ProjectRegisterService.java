@@ -1,6 +1,7 @@
 package so.ego.space.domains.project.application;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.tomcat.jni.Local;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import so.ego.space.domains.project.application.dto.ProjectRegisterRequest;
@@ -9,6 +10,10 @@ import so.ego.space.domains.project.domain.*;
 import so.ego.space.domains.user.domain.User;
 import so.ego.space.domains.user.domain.UserRepository;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -21,13 +26,14 @@ public class ProjectRegisterService {
     @Transactional
     public ProjectRegisterResponse addProject(ProjectRegisterRequest projectRegisterRequest){
         System.out.println(projectRegisterRequest.getUser_id());
-        // 프로젝트 생성
+
+                // 프로젝트 생성
         Project project = projectRepository.save(
                 Project.builder()
                         .name(projectRegisterRequest.getName())
                         .content(projectRegisterRequest.getContent())
-                        .start_date(projectRegisterRequest.getStart_date())
-                        .end_date(projectRegisterRequest.getEnd_date())
+                        .start_date(LocalDate.parse(projectRegisterRequest.getStart_date(), DateTimeFormatter.ISO_DATE))
+                        .end_date(LocalDate.parse(projectRegisterRequest.getEnd_date(), DateTimeFormatter.ISO_DATE))
                         .build()
         );
         // 멤버 추가
