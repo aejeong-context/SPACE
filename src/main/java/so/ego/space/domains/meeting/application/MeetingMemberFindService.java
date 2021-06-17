@@ -29,8 +29,6 @@ public class MeetingMemberFindService {
                     .nickname(meetingMember.getMember().getUser().getNickname())
                     .profilePath(meetingMember.getMember().getUser().getProfile().getPath())
                     .build());
-
-
         }
         return meetingMemberFindResponses;
     }

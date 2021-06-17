@@ -4,8 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import so.ego.space.domains.meeting.application.dto.MeetingFindResponse;
+import so.ego.space.domains.meeting.domain.MeetingMember;
+import so.ego.space.domains.meeting.domain.MeetingMemberRepository;
 import so.ego.space.domains.meeting.domain.MeetingRepository;
 import so.ego.space.domains.meeting.domain.Meeting;
+import so.ego.space.domains.task.damain.MemberTask;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -15,12 +18,15 @@ import java.util.List;
 public class MeetingFindService {
 
     private final MeetingRepository meetingRepository;
+    private final MeetingMemberRepository meetingMemberRepository;
+    private final MeetingMemberFindService meetingMemberFindService;
 
     //회의 리스트
     @Transactional
     public List<MeetingFindResponse> findAllMeetings(Long projectId){
         List<MeetingFindResponse> meetingFindResponseList = new LinkedList<>();
         List<Meeting> meetingList = meetingRepository.findByProjectId(projectId);
+
         for(Meeting meeting :meetingList ){
             meetingFindResponseList.add(MeetingFindResponse.builder()
                     .meetingId(meeting.getId())
@@ -29,6 +35,7 @@ public class MeetingFindService {
                     .goal(meeting.getGoal())
                     .end_time(meeting.getEnd_time())
                     .start_time(meeting.getStart_time())
+                    .meetingMemberFindResponseList(meetingMemberFindService.findAllMeetingMembers(meeting.getId()))
                     .build());
         }
         return meetingFindResponseList;
