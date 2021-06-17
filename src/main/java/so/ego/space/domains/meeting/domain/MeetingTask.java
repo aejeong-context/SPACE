@@ -1,15 +1,13 @@
 package so.ego.space.domains.meeting.domain;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import so.ego.space.domains.task.domain.Task;
+import lombok.*;
+import so.ego.space.domains.task.damain.Task;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
+@Builder
 @Table(name = "meeting_task")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor

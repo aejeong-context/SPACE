@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import so.ego.space.domains.user.application.dto.*;
+import so.ego.space.domains.user.domain.Profile;
+import so.ego.space.domains.user.domain.ProfileRepository;
 import so.ego.space.domains.user.domain.User;
 import so.ego.space.domains.user.domain.UserRepository;
 
@@ -15,14 +17,20 @@ import java.util.Optional;
 public class UserRegisterService {
 
     private final UserRepository userRepository;
+    private final ProfileRepository profileRepository;
 
     // 회원가입
+    @Transactional
     public UserRegisterResponse registerUser(UserRegisterRequest userRegisterRequest) {
+
+        Profile profile = profileRepository.save(Profile.builder().path("").build());
+
         User user = userRepository.save(
                 User.builder()
                     .email(userRegisterRequest.getEmail())
                     .password(userRegisterRequest.getPassword())
                     .nickname(userRegisterRequest.getNickname())
+                        .profile(profile)
                     .build()
         );
         return UserRegisterResponse.builder()
@@ -32,11 +40,11 @@ public class UserRegisterService {
     }
 
     // 이메일 중복검사
-    public UserCheckEmailResponse emailCheck(UserCheckEmailRequest userCheckEmailRequest){
+    public UserCheckEmailResponse emailCheck(String email){
         boolean isExist = userRepository
-                .existsByEmail(userCheckEmailRequest.getEmail());
+                .existsByEmail(email);
        return UserCheckEmailResponse.builder()
-               .email(userCheckEmailRequest.getEmail())
+               .email(email)
                .accept(isExist? false : true)
                .build();
     }

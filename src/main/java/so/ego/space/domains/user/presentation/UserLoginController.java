@@ -2,6 +2,7 @@ package so.ego.space.domains.user.presentation;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import so.ego.space.domains.user.application.UserLoginService;
@@ -14,10 +15,9 @@ import so.ego.space.domains.user.application.dto.UserLoginResponse;
 public class UserLoginController {
     private final UserLoginService userLoginService;
 
-    @GetMapping("/user")
+    @PostMapping("/user/login")
     public UserLoginResponse loginUser(@RequestBody UserLoginRequest userLoginRequest){
         return userLoginService.loginUser(userLoginRequest);
-
     }
 
 }
