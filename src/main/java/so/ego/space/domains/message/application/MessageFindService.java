@@ -11,6 +11,7 @@ import so.ego.space.domains.message.domain.Message;
 import so.ego.space.domains.message.domain.MessageRepository;
 import so.ego.space.domains.project.domain.Member;
 import so.ego.space.domains.project.domain.MemberRepository;
+import so.ego.space.domains.user.domain.UserRepository;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ import java.util.List;
 @Service
 public class MessageFindService {
     private final MessageRepository messageRepository;
-    private final MemberRepository memberRepository;
+    private final UserRepository userRepository;
     // 메시지 검색
     public MessageFindResponse findTalkSearch(MessageSearchRequest messageSearchRequest){
         List<Message> messageList = messageRepository.findByTalkSearch(
@@ -32,7 +33,9 @@ public class MessageFindService {
                     .id(m.getId())
                     .content(m.getContent())
                     .send_member(m.getSend_member().getId())
+                    .send_member_image(m.getSend_member().getUser().getProfile().getPath())
                     .read_member(m.getRead_member().getId())
+                    .read_member_image(m.getRead_member().getUser().getProfile().getPath())
                     .read_date(m.getRead_date())
                     .send_date(m.getSend_date())
                     .build());
@@ -81,6 +84,8 @@ public class MessageFindService {
                     .send_date(m.getSend_date())
                     .read_member(m.getRead_member().getId())
                     .send_member(m.getSend_member().getId())
+                    .read_member_image(m.getRead_member().getUser().getProfile().getPath())
+                    .send_member_image(m.getSend_member().getUser().getProfile().getPath())
                     .build());
         }
         return MessageFindResponse.builder()

@@ -25,7 +25,20 @@ spring:
         #        show_sql: true
         format_sql: true
 
+jasypt:
+  encryptor:
+    property:
+      prefix: ENC(
+      suffix: )
+    algorithm: PBEWithMD5AndDES
+
 logging:
   level:
     org.hibernate.SQL: debug
 #    org.hibernate.type: trace
+
+custom:
+  aws:
+    s3:
+      ACCESS_KEY: ENC(aZgsq0H1GpAlKxRkMTeRPAQO4KQeZVF5wbexQJCHBBk=)
+      SECRET_KEY: ENC(KV6r88GJeSDCUpWcKtBpT58IqsXSY52WeldFryPhSq7CgvLgzXgQonAidL6a8XiKRbymT7zcweg=)
