@@ -19,6 +19,9 @@ public class MessageDto {
     private Long send_member;
     private Long read_member;
 
+    private String send_member_image;
+    private String read_member_image;
+
     private LocalDateTime send_date;
     private LocalDateTime read_date;
 }

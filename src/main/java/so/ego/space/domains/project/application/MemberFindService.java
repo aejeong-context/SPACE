@@ -26,6 +26,7 @@ public class MemberFindService {
         for (Member m : memberList) {
             memberDtoList.add(
                     MemberDto.builder()
+                            .userId(m.getUser().getId())
                             .memberId(m.getId())
                     .profilePath(m.getUser().getProfile().getPath())
                     .nickname(m.getUser().getNickname())
