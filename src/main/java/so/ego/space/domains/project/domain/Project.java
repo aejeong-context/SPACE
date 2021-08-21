@@ -14,13 +14,13 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@Table(name = "project")
+@Table(name = "projects")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class Project {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;

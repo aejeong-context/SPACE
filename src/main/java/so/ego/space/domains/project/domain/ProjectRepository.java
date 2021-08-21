@@ -8,13 +8,16 @@ import java.util.Optional;
 
 public interface ProjectRepository extends JpaRepository<Project, Long> {
 
-    @Query(value = "SELECT * FROM PROJECT P INNER JOIN MEMBER M ON P.ID = M.PROJECT_ID INNER JOIN USER U ON M.USER_ID = U.ID WHERE USER_ID = :user_id", nativeQuery = true)
+//    @Query(value = "select * from projects p inner join member m on p.id = m.project_id inner join user u on m.user_id = u.id where user_id = :user_id",nativeQuery = true)
+    @Query("select  p from Project p inner join Member m on p.id = m.project.id where m.user.id = :user_id")
     List<Project> findMyProject(Long user_id);
 
-    @Query(value = "SELECT COUNT(*) FROM PROJECT P INNER JOIN TASK T ON P.ID = T.PROJECT_ID WHERE P.ID = :project_id", nativeQuery = true)
+//    @Query(value = "SELECT COUNT(*) FROM projects p INNER JOIN task T ON p.id = T.project_id WHERE p.id = :project_id", nativeQuery = true)
+    @Query("select count(t) from Project p inner join Task t on p.id = t.id where p.id = :project_id")
     Long countByTaskAll(Long project_id);
 
-    @Query(value = "SELECT COUNT(*) FROM PROJECT P INNER JOIN TASK T ON P.ID = T.PROJECT_ID WHERE P.ID = :project_id AND T.STATUS = 'DONE'", nativeQuery = true)
+//    @Query(value = "SELECT COUNT(*) FROM projects p INNER JOIN task T ON p.id = T.project_id WHERE p.id = :project_id AND T.status = 'DONE'", nativeQuery = true)
+    @Query("select count(p) from Project p inner join Task t on p.id = t.project.id where p.id = :project_id and t.status = 'DONE'")
     Long countByTaskDone(Long project_id);
 
 }

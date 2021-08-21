@@ -1,42 +1,23 @@
 server:
-  port: 8090
-
+  port: 443
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.p12
+    key-store-type: PKCS12
+    key-store-password: EGO_space_2021
+    key-alias: space-server
 spring:
-  h2:
-    console:
-      settings:
-        web-allow-others: true
   datasource:
-    url: jdbc:h2:tcp://localhost/~/space
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
-
-  mvc:
-    hiddenmethod:
-      filter:
-        enabled: true
-
-  jpa:
-    hibernate:
-      ddl-auto: create
-    properties:
-      hibernate:
-        #        show_sql: true
-        format_sql: true
-
+    url: ENC(oluJPFocN/alJ52ifISkIoxKsAkCBbCQFo33YyzDGP0Z4cBJ3OYKm8WTOq4wKpjfffBWNaCARbRRJcsl7zd3o9/enGaRhz9AOC4woSJcMnPw8TaW1B4kGksrgYydyM20pK/IFRsVJ2LuyV/zfhTClZrU5mzoGc0YS/VnuquCEwjkthDk3olODYQKxVDeVBsWrszvHThdETotFYWQQzlmCg==)
+    username: root
+    password: ENC(Txxry2eF/IoHnA1wAA8kc7lfBqEZQiKJ)
+    driver-class-name: com.mysql.cj.jdbc.Driver
 jasypt:
   encryptor:
     property:
       prefix: ENC(
       suffix: )
     algorithm: PBEWithMD5AndDES
-
-logging:
-  level:
-    org.hibernate.SQL: debug
-#    org.hibernate.type: trace
-
 custom:
   aws:
     s3:

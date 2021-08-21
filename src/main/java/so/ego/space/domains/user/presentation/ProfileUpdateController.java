@@ -17,4 +17,10 @@ public class ProfileUpdateController {
         return profileUpdateService.updateProfile(userId, profileImage);
 
     }
+
+    @PutMapping("/user/{userId}/profile")
+    public void deleteProfile(@PathVariable Long userId){
+         profileUpdateService.deleteProfile(userId);
+    }
+
 }

@@ -25,7 +25,7 @@ public class MessageFindService {
     // 메시지 검색
     public MessageFindResponse findTalkSearch(MessageSearchRequest messageSearchRequest){
         List<Message> messageList = messageRepository.findByTalkSearch(
-                messageSearchRequest.getMember_id(), messageSearchRequest.getKeyword()
+                messageSearchRequest.getMember_id(), messageSearchRequest.getOtherMemberId(),messageSearchRequest.getKeyword()
         );
         List<MessageDto> messageDtoList = new ArrayList<>();
         for (Message m: messageList) {

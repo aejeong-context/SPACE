@@ -1,6 +1,7 @@
 package so.ego.space.domains.task.application.dto;
 
 import lombok.Getter;
+import org.springframework.beans.factory.annotation.Required;
 import so.ego.space.domains.task.damain.MemberTask;
 import so.ego.space.domains.task.damain.TaskStatus;
 

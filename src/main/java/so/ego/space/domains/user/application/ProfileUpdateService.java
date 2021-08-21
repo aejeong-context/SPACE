@@ -30,4 +30,11 @@ public class ProfileUpdateService {
 
         return filePath;
     }
+
+    @Transactional
+    public void deleteProfile(Long userId) {
+        User user = userRepository.findById(userId).orElseThrow(()-> new IllegalArgumentException("Invalid UserId"));
+        user.updateProfilePath("");
+
+    }
 }

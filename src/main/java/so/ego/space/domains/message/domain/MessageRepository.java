@@ -17,8 +17,8 @@ public interface MessageRepository extends JpaRepository<Message, Long> {
     @Query("select m from Message m where m.send_member.id in (:member1_id, :member2_id) and m.read_member.id in (:member1_id, :member2_id)")
     List<Message> findByTalk(Long member1_id, Long member2_id);
 
-    @Query("select m from Message m where m.send_member.id = :member_id or m.read_member = :member_id and m.content like %:keyword%")
-    List<Message> findByTalkSearch(Long member_id, String keyword);
+    @Query("select m from Message m where m.send_member.id in (:member_id, :otherMemberId) and m.read_member.id in (:member_id, :otherMemberId) and m.content like %:keyword% ")
+    List<Message> findByTalkSearch(Long member_id,Long otherMemberId, String keyword);
 
 //    List<Message> findByRead_memberAndRead_date(Member member, LocalDateTime read_date);
     @Query("select m from Message m where m.read_member.id = :member_id and m.read_date is NULL")

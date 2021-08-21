@@ -52,11 +52,13 @@ public class TaskUpdateService {
         task.updateTaskDate(taskUpdateRequest.getStart_date(), taskUpdateRequest.getEnd_date());
         task.updateTaskStatus(taskUpdateRequest.getStatus());
         //담당자 모두 삭제
-        memberTaskRepository.deleteAll(memberTaskRepository.findByTaskId(taskUpdateRequest.getTaskId()));
+//        memberTaskRepository.deleteAll(memberTaskRepository.findByTaskId(taskUpdateRequest.getTaskId()));
         //담당자 입력
-        for( Long id : taskUpdateRequest.getMemberIdList()){
-            Member m = memberRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid MemberId Index"));
-            memberTaskRepository.save(MemberTask.builder().member(m).task(task).build());
+        if(taskUpdateRequest.getMemberIdList() != null) {
+            for (Long id : taskUpdateRequest.getMemberIdList()) {
+                Member m = memberRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid MemberId Index"));
+                memberTaskRepository.save(MemberTask.builder().member(m).task(task).build());
+            }
         }
 
     }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="SPACE.main/Hibernate" uuid="9028bb74-9454-478c-bee5-a438c0e7e2e6">
+      <driver-ref>cassandra</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate</remarks>
+      <jdbc-driver>com.dbschema.CassandraJdbcDriver</jdbc-driver>
+      <jdbc-url>ENC(oluJPFocN/alJ52ifISkIoxKsAkCBbCQFo33YyzDGP0Z4cBJ3OYKm8WTOq4wKpjfffBWNaCARbRRJcsl7zd3o9/enGaRhz9AOC4woSJcMnPw8TaW1B4kGksrgYydyM20pK/IFRsVJ2LuyV/zfhTClZrU5mzoGc0YS/VnuquCEwjkthDk3olODYQKxVDeVBsWrszvHThdETotFYWQQzlmCg==)</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>

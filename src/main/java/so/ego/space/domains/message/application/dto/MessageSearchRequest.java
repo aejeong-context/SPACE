@@ -5,5 +5,6 @@ import lombok.Getter;
 @Getter
 public class MessageSearchRequest {
     private Long member_id;
+    private Long otherMemberId;
     private String keyword;
 }

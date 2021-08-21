@@ -1,6 +1,7 @@
 package so.ego.space.domains.task.presentation;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,7 +37,7 @@ public class TaskUpdateController {
 
     //전체 변경
     @PutMapping("/task")
-    public void updateTask(@RequestBody TaskUpdateRequest taskUpdateRequest){
+    public void updateTask(@RequestBody(required = false) TaskUpdateRequest taskUpdateRequest){
         taskUpdateService.updateTask(taskUpdateRequest);
     }
 
