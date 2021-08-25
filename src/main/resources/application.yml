@@ -8,10 +8,13 @@ server:
     key-alias: space-server
 spring:
   datasource:
-    url: ENC(oluJPFocN/alJ52ifISkIoxKsAkCBbCQFo33YyzDGP0Z4cBJ3OYKm8WTOq4wKpjfffBWNaCARbRRJcsl7zd3o9/enGaRhz9AOC4woSJcMnPw8TaW1B4kGksrgYydyM20pK/IFRsVJ2LuyV/zfhTClZrU5mzoGc0YS/VnuquCEwjkthDk3olODYQKxVDeVBsWrszvHThdETotFYWQQzlmCg==)
+    url: ENC(faAfMhmyGlFOKG7gxykLUDthkuRH4Sm+uU4/lbFy1Zh5lCVsB64vjKw9aIgFXI1Z0l/4kb0YR+rj3Baf4JQTIXqsyMj7BSzTC4gAr90owbD2o9SgDYgAKxEC6M/f914IiIWnOShmV6c=)
     username: root
     password: ENC(Txxry2eF/IoHnA1wAA8kc7lfBqEZQiKJ)
     driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: mysql
 jasypt:
   encryptor:
     property:

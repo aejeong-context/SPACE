@@ -20,4 +20,5 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
     @Query("select count(p) from Project p inner join Task t on p.id = t.project.id where p.id = :project_id and t.status = 'DONE'")
     Long countByTaskDone(Long project_id);
 
+
 }
