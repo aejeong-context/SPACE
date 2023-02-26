@@ -1,6 +1,7 @@
 package so.ego.space.domains.task.damain;
 
 import lombok.*;
+import so.ego.space.domains.BaseTimeEntity;
 import so.ego.space.domains.project.domain.Project;
 
 import javax.persistence.*;
@@ -12,7 +13,7 @@ import java.time.LocalDate;
 @Table(name = "task")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Task {
+public class Task extends BaseTimeEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 

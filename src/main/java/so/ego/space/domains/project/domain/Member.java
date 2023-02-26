@@ -3,6 +3,7 @@ package so.ego.space.domains.project.domain;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.*;
+import so.ego.space.domains.BaseTimeEntity;
 import so.ego.space.domains.user.domain.User;
 
 import javax.persistence.*;
@@ -13,7 +14,7 @@ import javax.persistence.*;
 @Table(name = "member")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Member {
+public class Member extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

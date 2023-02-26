@@ -1,6 +1,7 @@
 package so.ego.space.domains.meeting.domain;
 
 import lombok.*;
+import so.ego.space.domains.BaseTimeEntity;
 import so.ego.space.domains.project.domain.Project;
 
 import javax.persistence.*;
@@ -12,7 +13,7 @@ import java.time.LocalDateTime;
 @Table(name = "meeting")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Meeting {
+public class Meeting extends BaseTimeEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

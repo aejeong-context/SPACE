@@ -4,6 +4,7 @@ package so.ego.space.domains.project.domain;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.*;
+import so.ego.space.domains.BaseTimeEntity;
 import so.ego.space.domains.project.domain.Member;
 
 import javax.persistence.*;
@@ -17,7 +18,7 @@ import java.util.List;
 @Table(name = "projects")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Project {
+public class Project extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

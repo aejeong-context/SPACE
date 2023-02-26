@@ -3,13 +3,14 @@ package so.ego.space.domains.user.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import so.ego.space.domains.BaseTimeEntity;
 
 @Entity
 @Getter
 @Table(name = "user")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class User {
+public class User extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
