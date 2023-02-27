@@ -1,11 +1,4 @@
-server:
-  port: 443
-  ssl:
-    enabled: true
-    key-store: keystore.p12
-    key-store-type: PKCS12
-    key-store-password: EGO_space_2021
-    key-alias: space-server
+
 spring:
   datasource:
     url: ENC(faAfMhmyGlFOKG7gxykLUDthkuRH4Sm+uU4/lbFy1Zh5lCVsB64vjKw9aIgFXI1Z0l/4kb0YR+rj3Baf4JQTIXqsyMj7BSzTC4gAr90owbD2o9SgDYgAKxEC6M/f914IiIWnOShmV6c=)
